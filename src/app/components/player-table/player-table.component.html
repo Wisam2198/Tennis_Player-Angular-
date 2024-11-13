@@ -1,0 +1,18 @@
+<h2>Tableau des joueurs de tennis :</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Prénom</th>
+      <th>Nom</th>
+      <th>Classement</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let player of players">
+      <td>{{ player.firstName }}</td>
+      <td>{{ player.name }}</td>
+      <td>{{ player.ranking }}</td>
+    </tr>
+  </tbody>
+</table>

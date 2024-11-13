@@ -1,0 +1,25 @@
+<h1>Hello, TennisPlayer</h1>
+
+<div class="compteur">
+  <h2>Compteur de clics : {{counter}}</h2>
+  <button (click)="onClick()">Clic</button><br>
+</div>
+
+<!-- Affichage conditionnel de la liste ou du tableau -->
+<ng-container *ngIf="showTable; else listTemplate">
+  <!-- Composant PlayerTable -->
+  <app-player-table [players]="players" (Over)="onOver($event)"></app-player-table>
+</ng-container><br>
+
+<!-- Bouton Switch -->
+<button (click)="toggleDisplay()">
+  {{ showTable ? 'Afficher en liste' : 'Afficher en tableau' }}
+</button>
+
+<ng-template #listTemplate>
+  <!-- Composant TennisPlayers -->
+  <app-tennis-players [players]="players"></app-tennis-players>
+</ng-template>
+
+<!-- Composant PlayerForm avec l'événement addPlayer -->
+<app-player-form (addPlayer)="addPlayer($event)"></app-player-form>
